@@ -4,7 +4,6 @@ let CustomTasksPlugin = require('../webpackPlugins/CustomTasksPlugin');
 let ManifestPlugin = require('../webpackPlugins/ManifestPlugin');
 let MockEntryPlugin = require('../webpackPlugins/MockEntryPlugin');
 let BuildOutputPlugin = require('../webpackPlugins/BuildOutputPlugin');
-let WebpackBar = require('webpackbar');
 
 /**
  *
@@ -48,10 +47,6 @@ module.exports = function (mix) {
             showRelated: true
         })
     );
-
-    if (process.env.NODE_ENV !== 'test') {
-        plugins.push(new WebpackBar({ name: 'Mix' }));
-    }
 
     return plugins;
 };
