@@ -15,7 +15,11 @@ module.exports = class Notifications extends Component {
             return [];
         }
 
-        const WebpackNotifierPlugin = require('webpack-notifier');
+        if (!this.context.resolver.has('webpack-notifier')) {
+            return [];
+        }
+
+        const WebpackNotifierPlugin = require(this.context.resolve('webpack-notifier'));
 
         return [
             new WebpackNotifierPlugin({
